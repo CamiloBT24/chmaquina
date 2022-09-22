@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chmaquina</title>
+    <link rel="stylesheet" href="./resources/css/tailwind.css">
+    <script src="/resources/js/index.js"></script>
+</head>
+
+<body class="bg-yellow-200">
+
+    <header>
+        <nav class="relative
+        w-full
+        flex flex-wrap
+        items-center
+        justify-between
+        py-4
+        bg-green-200
+        text-gray-500
+        hover:text-gray-700
+        focus:text-gray-700
+        shadow-lg
+        navbar navbar-expand-lg navbar-light
+        ">
+            <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+                <button class="
+                navbar-toggler
+                text-gray-900
+                border-0
+                hover:shadow-none hover:no-underline
+                py-2
+                px-2.5
+                bg-transparent
+                focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline md:hidden" id="boton">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="w-6" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor"
+                            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+                        </path>
+                    </svg>
+                </button>
+                <div class="navbar-collapse flex-grow items-center" id="menu">
+                    <a class="
+                    flex
+                    items-center
+                    text-gray-900
+                    hover:text-gray-900
+                    focus:text-gray-900
+                    mt-2
+                    lg:mt-0
+                    mr-1" href="">
+                        <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" style="height: 15px"
+                            alt="" loading="lazy" />
+                    </a>
+                    <!--LEFT LINKS-->
+                    <div>
+                        <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
+                            <li class="nav-item p-2">
+                                <div class="flex flex-col lg:flex lg:flex-row">
+                                    <form name="myForm">
+                                        <input type="file" name="myInput" accept=".ch" multiple id="files" disabled />
+                                    </form>
+                                    <button
+                                        class="bg-orange-400 text-white rounded-md ml-3 mr-3 mt-3 p-3 hover:bg-black lg:p-1 lg:mt-0"
+                                        id="encender" onclick="encender()">ON
+                                    </button>
+                                    <button
+                                        class="bg-red-400 text-white rounded-md ml-3 mr-3 mt-3 p-3 hover:bg-black lg:p-1 lg:mt-0"
+                                        id="apagar" onclick="apagar()">OFF
+                                    </button>
+                                    <button
+                                        class="bg-violet-400 text-white rounded-md ml-3 mr-3 mt-3 p-3 hover:bg-black lg:p-1 lg:mt-0"
+                                        id="correrPrograma" onclick="ejecutarPrograma()">Ejecutar Programa
+                                    </button>
+                                    <button
+                                        class="bg-violet-400 text-white rounded-md ml-3 mr-3 mt-3 p-3 hover:bg-black lg:p-1 lg:mt-0"
+                                        id="stepByStep" onclick="ejecutarPasoAPaso()">Paso a paso
+                                    </button>
+                                    <button
+                                        class=" lg:bg-violet-400 lg:p-2 lg:rounded-md lg:text-white lg:hover:bg-violet-400"
+                                        id="moMemoria" onclick="moMemoria()">Mostrar Memoria
+                                    </button>
+                                    <a class="bg-violet-400 text-white text-center rounded-md ml-3 mr-3 mt-3 p-3 hover:bg-black lg:p-1 lg:mt-0"
+                                        href="https://block412867051.wordpress.com/2022/09/21/manual-de-usuario-chmaquina/">Manual
+                                        de usuario
+                                    </a>
+                                    <a class="bg-violet-400 text-white text-center rounded-md ml-3 mr-3 mt-3 p-3 hover:bg-black lg:p-1 lg:mt-0"
+                                        href="https://block412867051.wordpress.com/2022/09/21/manual-tecnico-chmaquina/">Manual
+                                        de tecnico
+                                    </a>
+                                </div>
+                            </li>
+                            <!--BOTONES DEL NAV-->
+                            <div class="lg:flex mt-3">
+                                <li class="nav-item p-2">
+                                    <div class="d-flex flex-row me-5">
+                                        <div class="container-algotimthms input-group mb-5">
+                                            <label
+                                                class="border-4 rounded-md border-blue-800 bg-blue-200 text-blue-700 p-1"
+                                                for="inputGroupSelect01">Algoritmo</label>
+                                            <select name="" class="rounded-md border-2 border-blue-800 ml-2 p-1"
+                                                id="inputGroupSelect01">
+                                                <option value="fcfs" selected>FCFS</option>
+                                                <option value="sjf">SJF</option>
+                                                <option value="srtn">SRTN</option>
+                                                <option value="prioridad">Prioridad</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item p-2">
+                                    <form class="flex flex-col content-center md:flex md:flex-row lg:flex lg:flex-row"
+                                        id="forma" onsubmit="return false">
+                                        <div class="article">
+                                            <p
+                                                class="border-4 rounded-md border-blue-800 bg-blue-200 text-blue-700 ml-3 mr-3 text-center">
+                                                Quantum</p>
+                                            <div class="flex justify-center mt-2 mb-2">
+                                                <input class="text-center border-2 border-blue-800 rounded-sm mr-1"
+                                                    type="number" id="q" name="q" value="0">
+                                            </div>
+                                        </div>
+                                        <div class="article">
+                                            <p
+                                                class="border-4 rounded-md border-blue-800 bg-blue-200 text-blue-700 ml-3 mr-3 text-center">
+                                                Kernel
+                                            </p>
+                                            <div class="flex justify-center mt-2 mb-2">
+                                                <input class="text-center border-2 border-blue-800 rounded-sm mr-1"
+                                                    type="number" id="kernel" name="kernel" value="59">
+                                            </div>
+                                        </div>
+                                        <div class="article">
+                                            <p
+                                                class="border-4 rounded-md border-blue-800 bg-blue-200 text-blue-700 ml-3 mr-3 text-center">
+                                                Memoria</p>
+                                            <div class="flex justify-center mt-2 mb-2">
+                                                <!--Lo tiene como memoria-input-->
+                                                <input class="text-center border-2 border-blue-800 rounded-sm mr-1"
+                                                    type="number" name="memoria" id="memoria-input" value="100">
+
+                                            </div>
+                                        </div>
+                                        <div class="article">
+                                            <p
+                                                class="border-4 rounded-md border-blue-800 bg-blue-200 text-blue-700 ml-3 mr-3 text-center">
+                                                Acumulador
+                                            </p>
+                                            <div class="flex justify-center mt-2 mb-2">
+                                                <input class="text-center border-2 border-blue-800 rounded-sm"
+                                                    type="number" name="acumulador" id="acumulador" value="0"
+                                                    disabled='false'>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </div>
+
+                            <li class="nav-item p-2">
+                                <div class="flex justify-center">
+                                    <button class="bg-blue-600 p-2 rounded-md text-white hover:bg-black lg:hidden"
+                                        id="memoria" onclick="moMemoria()">Mostrar Memoria</button>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!------------------MAIN----------------->
+    <!-- OPERATIONS -->
+
+    <main class="md:flex md:justify-start md:mx-10 bg-yellow-200">
+        <section class="operations mt-5">
+            <p class="rounded-md border-2 border-green-800 bg-green-200 text-green-700 text-center ml-10 mr-10 mb-2">
+                Operaciones</p>
+            <div class="w-full h-80 overflow-auto bg-white md:w-52 border-4 border-blue-600" id="instrucciones">
+
+            </div>
+        </section>
+        <!----VARIABLES Y ETIQUETAS,  monitor imporesora y muestra de memoria----->
+        <section class="lg:flex lg:ml-6 mt-5">
+            <div class="md:flex md:flex-row mr-3">
+                <div class="article" id="variable">
+                    <p
+                        class="rounded-md border-2 border-green-800 bg-green-200 text-green-700 ml-10 mr-10 text-centermb-2 mb-2">
+                        Variables</p>
+                    <div class="w-full h-80 overflow-auto bg-white flex flex-col border-4 border-blue-600"
+                        id="variables"></div>
+                </div>
+                <div class="article" id="tag">
+                    <p
+                        class="rounded-md border-2 border-green-800 bg-green-200 text-green-700 ml-10 mr-10 text-center mb-2">
+                        Etiquetas</p>
+                    <div class="w-full h-80 overflow-auto bg-white flex flex-col border-4 border-blue-600"
+                        id="etiquetas"></div>
+                    <!--Como etiquetas-->
+                </div>
+            </div>
+            <!--Monitor e Impresora-->
+            <div>
+                <div class="monitor-background mt-3">
+                    <p class="rounded-md border-2 border-green-800 bg-green-200 text-green-700 ml-10 mr-10 text-center">
+                        Monitor</p>
+                    <img class="lg:w-96 lg:h-48 bg-opacity-5" id="monitor" src="./resources/assets/monitor1.png"
+                        alt="Monitor">
+                    <div class="-mt-64 mb-80 ml-12 font-semibold lg:absolute lg:-bottom-6 bg-white" id="monitor-result">
+                        El resultado
+                        es:</div>
+                    <button class="btn-blue ml-8 mb-3 font-semibold" disabled id="modo">Modo kernel</button>
+                </div>
+
+                <div class="main-impresora">
+                    <p class="bg-blue-700 ml-10 mr-10 rounded-md text-center text-white">Impresora</p>
+                    <img class="lg:w-96 lg:h-48" id="printer" src="./resources/assets/impresora2.png" alt="impresora">
+                    <div class="impresora-texto bg-white" id="impresora-result">Resultado:</div>
+                </div>
+            </div>
+            <!--Muestra Memoria-->
+            <div>
+                <p class="bg-blue-700 ml-12 mr-10 rounded-md text-center text-white mb-2">Memoria</p>
+                <div class="w-full h-80 overflow-auto bg-white lg:w-36 border-4 border-blue-600 mx-a ml-2" id="memoria">
+                </div>
+                <div class="flex justify-center mt-3">
+                    <button class="bg-blue-700 p-3 rounded-md text-white" id="cerrar"
+                        onclick="cerrarDiv()">Cerrar</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!--PARTE FINAL-->
+
+    <footer class="flex justify-between bg-white shadow-md mt-3" id="footer-home">
+        <div class="footer-container-row">
+            <h3>ID</h3>
+            <div id="idColumn"></div>
+        </div>
+        <div class="footer-container-row">
+            <h3>Programa</h3>
+            <div id="programa"></div>
+        </div>
+        <div class="footer-container-row">
+            <h3>=Ins</h3>
+            <div id="ins"></div>
+        </div>
+        <div class="footer-container-row">
+            <h3>RB</h3>
+            <div id="rb"></div>
+        </div>
+        <div class="footer-container-row">
+            <h3>RLC</h3>
+            <div id="rlc"></div>
+        </div>
+        <div class="footer-container-row">
+            <h3>RLP</h3>
+            <div id="rlp"></div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
